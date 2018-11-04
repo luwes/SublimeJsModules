@@ -1,0 +1,10 @@
+[
+	{
+		"caption": "JsModules: Convert file to ES module",
+		"command": "js_modules_file"
+	},
+  {
+    "caption": "JsModules: Convert all files in current directory to ES module",
+    "command": "js_modules_dir"
+  }
+]
