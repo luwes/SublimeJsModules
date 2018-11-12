@@ -2,24 +2,18 @@ import os
 import sublime
 import sublime_plugin
 
-class JsModulesFileCommand(sublime_plugin.WindowCommand):
-  def run(self):
-    window = self.window
-    active_view = window.active_view()
-    if active_view:
-      active_file_name = active_view.file_name()
-      shell_cmd = "cjs-to-es6 {0}".format(active_file_name)
-      window.run_command('exec', {
-        'shell_cmd': shell_cmd
-      })
+class JsModulesFileCommand(sublime_plugin.TextCommand):
+  def run(self, edit):
+    active_file = self.view.file_name()
+    shell_cmd = "cjs-to-es6 {0}".format(active_file)
+    self.view.window().run_command('exec', {
+      'shell_cmd': shell_cmd
+    })
 
-class JsModulesDirCommand(sublime_plugin.WindowCommand):
-  def run(self):
-    window = self.window
-    active_view = window.active_view()
-    if active_view:
-      active_dir = os.path.dirname(active_view.file_name())
-      shell_cmd = "cjs-to-es6 {0}".format(active_dir)
-      window.run_command('exec', {
-        'shell_cmd': shell_cmd
-      })
+class JsModulesDirCommand(sublime_plugin.TextCommand):
+  def run(self, edit):
+    active_dir = os.path.dirname(self.view.file_name())
+    shell_cmd = "cjs-to-es6 {0}".format(active_dir)
+    self.view.window().run_command('exec', {
+      'shell_cmd': shell_cmd
+    })
