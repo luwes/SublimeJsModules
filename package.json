@@ -1,6 +1,6 @@
 {
   "name": "sublime-js-modules",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JsModules is a Sublime Text Plug-in to convert CJS modules to ES modules.",
   "repository": "luwes/SublimeJsModules",
   "author": "Wesley Luyten",
